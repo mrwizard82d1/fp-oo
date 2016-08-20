@@ -63,3 +63,89 @@
 ;; remove all items that fulfill cond in seq
 (remove odd? (range 6))
 ;; (0 2 4)
+
+;; determine equality of two items
+(= 3 3.0)
+;; true
+(= 3 3.000001)
+;; 3.000001
+
+;; count the items in a seq
+(count [0 1 2])
+;; 3
+
+;; Calculate Boolean expressions
+(and false true)
+;; false
+(and true false)
+;; false
+(and true true true)
+;; true
+(or false true)
+;; true
+(or true false)
+;; true
+(or false false)
+;; false
+(not true)
+;; false
+(not false)
+;; true
+
+;; construct a new sequence
+(cons 1 [2 3 4])
+;; (1 2 3 4)
+
+;; Increment and decrement arguments
+(inc Math/PI)
+;; 4.14159...
+(dec Math/PI)
+;; 2.14159...
+
+;; Detect an empty sequence
+(empty? [])
+;; true
+(empty? nil)
+;; nil
+(empty? [1])
+;; false
+
+;; Return the item in a seq based on its index
+(nth [0 1 2 3 4] 4)
+;; 4
+
+;; Return the last item in a seq
+(last [0 1 2 3])
+;; 3
+
+;; Reverse a seq
+(reverse [0 1 2 3])
+;; (3 2 1 0)
+
+;; print (with no newline)
+(print [0 1 2])
+;; Prints its arguments (and returns nil)
+
+;; print with a newline
+(println [0 1 2])
+;; Prints its arguments followed by a newline (and returns nil)
+
+;; print in "reader format")
+(prn "prn")
+;; Prints '"prn"' (including double quotes) and returns nil
+(prn [0 1 2])
+;; Prints the vector (and returns nil)
+
+;; Print an expression in a "pretty" way
+(pprint [0 1 [2 [3 4]]])
+;; Throws exception when printed from this buffer but prints
+
+(defn prefix-of? [prefix sequence]
+  (= prefix (take (count prefix) sequence)))
+
+(defn tails [seq]
+  (map #(drop % seq) (range (count seq))))
+
+;; a broken function
+(def puzzle 
+  (fn [list] (list list)))
