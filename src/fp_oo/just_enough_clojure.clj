@@ -15,3 +15,9 @@
 (def add-squares
   (fn [& args]
     (apply + (map (fn [x] (* x x)) args))))
+
+(def factorial
+  (fn [n]
+    (if (= n 0)
+      1
+      (apply * (range 1 (inc n))))))

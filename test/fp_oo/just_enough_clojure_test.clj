@@ -21,3 +21,8 @@
        (fact (jec/add-squares) => 0)
        (fact (jec/add-squares 1) => 1)
        (fact (jec/add-squares 1 2 5) => 30))
+
+(facts "factorial"
+       (fact (jec/factorial 0) => 1)
+       (fact (jec/factorial 1) => 1)
+       (fact (jec/factorial 5) => 120))
