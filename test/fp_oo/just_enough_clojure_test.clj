@@ -16,3 +16,8 @@
        (fact (jec/third-b [:a]) => empty?)
        (fact (jec/third-b [:a :b]) => empty?)
        (fact (jec/third-b [:a :b :c]) => :c))
+
+(facts "add-squares"
+       (fact (jec/add-squares) => 0)
+       (fact (jec/add-squares 1) => 1)
+       (fact (jec/add-squares 1 2 5) => 30))

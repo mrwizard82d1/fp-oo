@@ -11,3 +11,7 @@
 (def third-b
   (fn [l]
     (nth l 2 nil)))
+
+(def add-squares
+  (fn [& args]
+    (apply + (map (fn [x] (* x x)) args))))
