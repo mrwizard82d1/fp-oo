@@ -73,3 +73,8 @@
   (fn [s]
     (remove (fn [e] (nil? e))
             s)))
+
+(def prefix-of?
+  (fn [candidate sequence]
+    (= candidate (take (count candidate)
+                       sequence))))

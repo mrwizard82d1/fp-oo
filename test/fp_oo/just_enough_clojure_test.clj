@@ -68,3 +68,8 @@
        (fact (jec/remove-all-nils [3 1 4]) => [3 1 4])
        (fact (jec/remove-all-nils (interleave [3 1 4 1 5 9]
                                               (repeat nil))) => [3 1 4 1 5 9]))
+
+(facts "prefix-of? - is sequence at the front of candidate"
+       (fact (jec/prefix-of? [1 2] [1 2 3 4]) => truthy)
+       (fact (jec/prefix-of? '(2 3) [1 2 3 4]) => falsey)
+       (fact (jec/prefix-of? '(1 2) [1 2 3 4]) => truthy))
