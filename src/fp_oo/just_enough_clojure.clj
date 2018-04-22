@@ -78,3 +78,10 @@
   (fn [candidate sequence]
     (= candidate (take (count candidate)
                        sequence))))
+
+(def tails
+  (fn [s]
+    (map (fn [n xs]
+           (drop n xs))
+         (range (inc (count s)))
+         (repeat s))))

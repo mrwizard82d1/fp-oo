@@ -73,3 +73,9 @@
        (fact (jec/prefix-of? [1 2] [1 2 3 4]) => truthy)
        (fact (jec/prefix-of? '(2 3) [1 2 3 4]) => falsey)
        (fact (jec/prefix-of? '(1 2) [1 2 3 4]) => truthy))
+
+(facts "tails - return a sequence of all tails of the original sequence"
+       (fact (jec/tails '()) => '(()))
+       (fact (jec/tails '(1)) => '((1) ()))
+       (fact (jec/tails '(1 2)) => '((1 2) (2) ()))
+       (fact (jec/tails '(1 2 3 4)) => '((1 2 3 4) (2 3 4) (3 4) (4) ())))
