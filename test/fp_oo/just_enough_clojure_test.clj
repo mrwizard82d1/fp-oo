@@ -29,3 +29,12 @@
 
 (facts "take - first 3 even numbers"
        (fact (jec/take-eg) => [0 2 4]))
+
+(facts "distinct - number of duplicates"
+       (fact (jec/duplicate-count []) => 0)
+       (fact (jec/duplicate-count [3]) => 0)
+       (fact (jec/duplicate-count [3 1]) => 0)
+       (fact (jec/duplicate-count [3 1 4 1]) => 1)
+       (fact (jec/duplicate-count [3 3]) => 1)
+       (fact (jec/duplicate-count [3 3 3]) => 2))
+

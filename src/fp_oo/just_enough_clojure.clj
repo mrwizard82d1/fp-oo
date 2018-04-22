@@ -25,3 +25,8 @@
 (def take-eg
   (fn []
     (take 3 (filter even? (iterate (fn [x] (+ 2 x)) 0)))))
+
+(def duplicate-count
+  (fn [coll]
+    (- (count coll)
+       (count (distinct coll)))))
