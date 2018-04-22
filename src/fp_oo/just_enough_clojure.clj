@@ -21,3 +21,7 @@
     (if (= n 0)
       1
       (apply * (range 1 (inc n))))))
+
+(def take-eg
+  (fn []
+    (take 3 (filter even? (iterate (fn [x] (+ 2 x)) 0)))))

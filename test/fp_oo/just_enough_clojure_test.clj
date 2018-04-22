@@ -26,3 +26,6 @@
        (fact (jec/factorial 0) => 1)
        (fact (jec/factorial 1) => 1)
        (fact (jec/factorial 5) => 120))
+
+(facts "take - first 3 even numbers"
+       (fact (jec/take-eg) => [0 2 4]))
