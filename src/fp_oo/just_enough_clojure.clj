@@ -56,7 +56,6 @@
 
 (def add-nested
   (fn [s]
-    (println (flatten s))
     (apply + (flatten s))))
 
 (def big-endian->little-endian
@@ -65,3 +64,7 @@
          (partition 2)
          (reverse)
          (flatten))))
+
+(def all-odd?
+  (fn [s]
+    (every? odd? s)))

@@ -56,3 +56,8 @@
 
 (facts "(partition n coll) - big endian to little endian"
        (fact (jec/big-endian->little-endian [1 2 3 4]) => [3 4 1 2]))
+
+(facts "every? - is every element of a sequence odd"
+       (fact (jec/all-odd? [3 1]) => truthy)
+       (fact (jec/all-odd? [3 1 4]) => falsey)
+       (fact (jec/all-odd? [2 8]) => falsey))
