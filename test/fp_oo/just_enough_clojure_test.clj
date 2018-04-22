@@ -38,3 +38,5 @@
        (fact (jec/duplicate-count [3 3]) => 1)
        (fact (jec/duplicate-count [3 3 3]) => 2))
 
+(facts "concat - first, first two, first three"
+       (fact (jec/first-n-of [3 1 4] [2 7 1] [1 4 1]) => [3 2 7 1 4 1]))

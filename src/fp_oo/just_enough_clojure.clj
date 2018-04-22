@@ -30,3 +30,9 @@
   (fn [coll]
     (- (count coll)
        (count (distinct coll)))))
+
+(def first-n-of
+  (fn [first-coll second-coll third-coll]
+    (concat (take 1 first-coll)
+            (take 2 second-coll)
+            (take 3 third-coll))))
