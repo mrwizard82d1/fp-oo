@@ -56,4 +56,5 @@
 
 (def add-nested
   (fn [s]
+    (println (flatten s))
     (apply + (flatten s))))
