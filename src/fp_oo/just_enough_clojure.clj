@@ -68,3 +68,8 @@
 (def all-odd?
   (fn [s]
     (every? odd? s)))
+
+(def remove-all-nils
+  (fn [s]
+    (remove (fn [e] (nil? e))
+            s)))

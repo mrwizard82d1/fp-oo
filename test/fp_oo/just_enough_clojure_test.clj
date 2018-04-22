@@ -61,3 +61,10 @@
        (fact (jec/all-odd? [3 1]) => truthy)
        (fact (jec/all-odd? [3 1 4]) => falsey)
        (fact (jec/all-odd? [2 8]) => falsey))
+
+(facts "remove - remove all nil values from a sequence"
+       (fact (jec/remove-all-nils []) => [])
+       (fact (jec/remove-all-nils [nil]) => [])
+       (fact (jec/remove-all-nils [3 1 4]) => [3 1 4])
+       (fact (jec/remove-all-nils (interleave [3 1 4 1 5 9]
+                                              (repeat nil))) => [3 1 4 1 5 9]))
