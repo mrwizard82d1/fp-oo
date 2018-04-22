@@ -47,3 +47,6 @@
 (facts "interleave - separate collection of numbers with underscores"
        (fact (jec/separate-with-underscores [3 1 4 1 5 9]) =>
              [3 '_ 1 '_ 4 '_ 1 '_ 5 '_ 9]))
+
+(facts "drop and drop-last - return middle two elements of even count sequence"
+       (fact (jec/middle-two-of-even-sequence [3 1 4 5 1 9]) => [4 5]))

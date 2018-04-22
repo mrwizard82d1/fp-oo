@@ -47,3 +47,9 @@
     (take (dec (* 2 (count coll)))
           (interleave coll
                 (repeat '_)))))
+
+(def middle-two-of-even-sequence
+  (fn [s]
+    (->> s
+        (drop (dec (/ (count s) 2)))
+        (drop-last (dec (/ (count s) 2))))))
