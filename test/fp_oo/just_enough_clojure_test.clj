@@ -53,3 +53,6 @@
 
 (facts "flatten - add elements in a, possibly nested, sequence"
        (fact (jec/add-nested [3 '(1 4 [1]) (seq [5 [9]])]) => 23))
+
+(facts "(partition n coll) - big endian to little endian"
+       (fact (jec/big-endian->little-endian [1 2 3 4]) => [3 4 1 2]))

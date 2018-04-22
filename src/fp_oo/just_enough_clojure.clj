@@ -58,3 +58,10 @@
   (fn [s]
     (println (flatten s))
     (apply + (flatten s))))
+
+(def big-endian->little-endian
+  (fn [s]
+    (->> s
+         (partition 2)
+         (reverse)
+         (flatten))))
