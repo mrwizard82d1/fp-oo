@@ -40,3 +40,10 @@
 
 (facts "concat - first, first two, first three"
        (fact (jec/first-n-of [3 1 4] [2 7 1] [1 4 1]) => [3 2 7 1 4 1]))
+
+(facts "repeat - repeat list of 3re and 5th elements of collection"
+       (fact (jec/repeat-eg '(_ _ A _ B _ _)) => [['A 'B] ['A 'B] ['A 'B] ['A 'B]]))
+
+(facts "interleave - separate collection of numbers with underscores"
+       (fact (jec/separate-with-underscores [3 1 4 1 5 9]) =>
+             [3 '_ 1 '_ 4 '_ 1 '_ 5 '_ 9]))

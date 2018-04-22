@@ -36,3 +36,14 @@
     (concat (take 1 first-coll)
             (take 2 second-coll)
             (take 3 third-coll))))
+
+(def repeat-eg
+  (fn [s]
+    (repeat 4 (vector (nth s 2)
+                      (nth s 4)))))
+
+(def separate-with-underscores
+  (fn [coll]
+    (take (dec (* 2 (count coll)))
+          (interleave coll
+                (repeat '_)))))
