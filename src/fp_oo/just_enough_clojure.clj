@@ -53,3 +53,7 @@
     (->> s
         (drop (dec (/ (count s) 2)))
         (drop-last (dec (/ (count s) 2))))))
+
+(def add-nested
+  (fn [s]
+    (apply + (flatten s))))

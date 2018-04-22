@@ -50,3 +50,6 @@
 
 (facts "drop and drop-last - return middle two elements of even count sequence"
        (fact (jec/middle-two-of-even-sequence [3 1 4 5 1 9]) => [4 5]))
+
+(facts "flatten - add elements in a, possibly nested, sequenc"
+       (fact (jec/add-nested [3 [1 4 [1] [5 [9]]]]) => 23))
