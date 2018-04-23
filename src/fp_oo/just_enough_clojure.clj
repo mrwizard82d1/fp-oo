@@ -85,3 +85,10 @@
            (drop n xs))
          (range (inc (count s)))
          (repeat s))))
+
+(def puzzle
+  (fn [list]
+    (list list)))
+
+(def do-puzzle
+  (fn [] (puzzle '(1 2 3))))

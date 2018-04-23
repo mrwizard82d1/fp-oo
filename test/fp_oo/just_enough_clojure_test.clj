@@ -79,3 +79,6 @@
        (fact (jec/tails '(1)) => '((1) ()))
        (fact (jec/tails '(1 2)) => '((1 2) (2) ()))
        (fact (jec/tails '(1 2 3 4)) => '((1 2 3 4) (2 3 4) (3 4) (4) ())))
+
+(facts "puzzle"
+       (fact (jec/do-puzzle '(1 2 3)) => (throws Exception)))
