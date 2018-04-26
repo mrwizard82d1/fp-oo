@@ -31,3 +31,16 @@
 (def make
   (fn [ctor & args]
     (apply ctor args)))
+
+(def equal-triangles?
+  (fn [left right]
+    (= left right)))
+
+(def right-triangle
+  (make Triangle (make Point 0 0) (make Point 1 0) (make Point 1 1)))
+
+(def equal-right-triangle
+  (make Triangle (make Point 0 0) (make Point 1 0) (make Point 1 1)))
+
+(def different-right-triangle
+  (make Triangle (make Point 0 0) (make Point 1 0) (make Point 1 2)))

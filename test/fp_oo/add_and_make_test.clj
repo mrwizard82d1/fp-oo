@@ -45,3 +45,8 @@
              v2 (aam/Point 653 400)
              v3 (aam/Point 359 786)]
          (fact (aam/make aam/Triangle v1 v2 v3) => (contains {:v1 v1 :v2 v2 :v3 v3}))))
+
+(facts "equal-triangles?"
+       (fact (aam/equal-triangles? aam/right-triangle aam/right-triangle) => truthy)
+       (fact (aam/equal-triangles? aam/right-triangle aam/equal-right-triangle) => truthy)
+       (fact (aam/equal-triangles? aam/right-triangle aam/different-right-triangle) => falsey))
