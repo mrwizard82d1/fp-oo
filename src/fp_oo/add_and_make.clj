@@ -20,3 +20,10 @@
 (def add
   (fn [this addend]
     (shift this (x addend) (y addend))))
+
+(def Triangle
+  (fn [v1 v2 v3]
+    {:v1 v1
+     :v2 v2
+     :v3 v3
+     :__class-symbol__ 'Triangle}))

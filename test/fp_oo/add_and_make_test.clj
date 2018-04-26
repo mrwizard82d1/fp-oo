@@ -5,7 +5,14 @@
 (facts "Minimal constructor"
        (fact (aam/Point 525 715) => {:x 525,
                                      :y 715,
-                                     :__class-symbol__ 'Point}))
+                                     :__class-symbol__ 'Point})
+       (let [v1 (aam/Point 443 727)
+             v2 (aam/Point 29 105)
+             v3 (aam/Point 218 710)]
+         (fact (aam/Triangle v1 v2 v3) => {:v1 v1
+                                           :v2 v2
+                                           :v3 v3
+                                           :__class-symbol__ 'Triangle})))
 
 (facts "Accessors"
        (fact (aam/x {:x 763 :y 465}) => 763)
