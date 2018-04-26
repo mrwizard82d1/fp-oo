@@ -11,3 +11,8 @@
 (def y :y)
 
 (def class-of :__class-symbol__)
+
+(def shift
+  (fn [this x-inc y-inc]
+    (Point (+ (x this) x-inc)
+           (+ (y this) y-inc))))
