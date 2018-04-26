@@ -15,7 +15,7 @@
        (let [to-test (aam/Point 756 467)]
          (fact (aam/class-of to-test) => 'Point)))
 
-(facts "Mutators"
+(facts "shift"
        (let [to-test (aam/Point 990 949)
              shifted-point (aam/shift to-test 275 193)
              other-shifted (aam/shift to-test -275 -193)]
@@ -23,3 +23,10 @@
          (fact (aam/y shifted-point) => 1142)
          (fact (aam/x other-shifted) => 715)
          (fact (aam/y other-shifted) => 756)))
+
+(facts "add"
+       (let [to-test (aam/Point 997 84)
+             addend (aam/Point 90 92)
+             sum (aam/add to-test addend)]
+         (fact (aam/x sum) => 1087)
+         (fact (aam/y sum) => 176)))

@@ -16,3 +16,8 @@
   (fn [this x-inc y-inc]
     (Point (+ (x this) x-inc)
            (+ (y this) y-inc))))
+
+(def add
+  (fn [this addend]
+    (Point (+ (x this) (x addend))
+           (+ (y this) (y addend)))))
