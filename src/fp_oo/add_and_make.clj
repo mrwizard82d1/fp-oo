@@ -19,5 +19,4 @@
 
 (def add
   (fn [this addend]
-    (Point (+ (x this) (x addend))
-           (+ (y this) (y addend)))))
+    (shift this (x addend) (y addend))))
