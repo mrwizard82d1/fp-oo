@@ -37,3 +37,11 @@
              sum (aam/add to-test addend)]
          (fact (aam/x sum) => 1087)
          (fact (aam/y sum) => 176)))
+
+(facts "make"
+       (let [x 763 y 264]
+         (fact (aam/make aam/Point x y) => (contains {:x x :y y})))
+       (let [v1 (aam/Point 809 360)
+             v2 (aam/Point 653 400)
+             v3 (aam/Point 359 786)]
+         (fact (aam/make aam/Triangle v1 v2 v3) => (contains {:v1 v1 :v2 v2 :v3 v3}))))

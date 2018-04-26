@@ -27,3 +27,7 @@
      :v2 v2
      :v3 v3
      :__class-symbol__ 'Triangle}))
+
+(def make
+  (fn [ctor & args]
+    (apply ctor args)))
