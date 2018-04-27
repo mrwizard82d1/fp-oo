@@ -5,6 +5,10 @@
   (fn [ctor & args]
     (apply ctor args)))
 
+(def send-to
+  (fn [instance message & args]
+    (apply (message (:__methods__ instance)) instance args)))
+
 (def Point
   (fn [x y]
     {:x x ; initialize instance variables
