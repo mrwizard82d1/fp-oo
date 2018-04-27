@@ -15,10 +15,15 @@
      :y y
      :__class-symbol__ 'Point ; class meta-data
      :__methods__ {:class :__class-symbol__
+                   :x :x ; getters
+                   :y :y
+                   :add
+                   (fn [this addend]
+                     (send-to this :shift (send-to addend :x) (send-to addend :y)))
                    :shift
                    (fn [this delta-x delta-y]
-                     (make Point (+ (:x this) delta-x)
-                                 (+ (:y this) delta-y)))}}))
+                     (make Point (+ (send-to this :x) delta-x)
+                                 (+ (send-to this :y) delta-y)))}}))
 
 (def x :x)
 

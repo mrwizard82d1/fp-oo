@@ -67,6 +67,9 @@
              invalid-triangle (aam/make aam/Triangle v1 v2 v1)]
          (fact (aam/valid-triangle? valid-triangle) => truthy)
          (fact (aam/valid-triangle? invalid-triangle) => falsey)))
+
 (facts "send-to"
        (let [point (aam/make aam/Point 781 418)]
-         (fact (aam/send-to point :shift -2 -3) => (contains {:x 779 :y 415}))))
+         (fact (aam/send-to point :shift -2 -3) => (contains {:x 779 :y 415}))
+         (fact (aam/send-to point :x) => 781)
+         (fact (aam/send-to point :y) => 418)))
