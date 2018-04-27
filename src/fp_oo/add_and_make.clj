@@ -1,4 +1,5 @@
-(ns fp-oo.add-and-make)
+(ns fp-oo.add-and-make
+  (:require [fp-oo.just-enough-clojure :as jec]))
 
 (def Point
   (fn [x y]
@@ -42,3 +43,12 @@
 
 (def different-right-triangle
   (make Triangle (make Point 0 0) (make Point 1 0) (make Point 1 2)))
+
+(def v1 :v1)
+(def v2 :v2)
+(def v3 :v3)
+
+(def valid-triangle?
+  (fn [triangle]
+    (let [vertices (map #(% triangle) [v1 v2 v3])]
+      (zero? (jec/duplicate-count vertices)))))
