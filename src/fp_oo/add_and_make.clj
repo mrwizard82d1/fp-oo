@@ -3,8 +3,7 @@
 
 (def make
   (fn [klass & args]
-    (let [allocated {} ; "allocate" an empty object
-          seeded (assoc allocated :__class-symbol__ (:__own-symbol__ klass))
+    (let [seeded {:__class-symbol__ (:__own-symbol__ klass)}
           constructor (:__add-instance-values__ (:__instance-methods__ klass))]
       (apply constructor seeded args))))
 
