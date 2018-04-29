@@ -2,28 +2,30 @@
   (:require [fp-oo.just-enough-clojure :as jec]))
 
 (def make
-  (fn [ctor & args]
-    (apply ctor args)))
+  (fn [klass & args]
+    (let [allocated {} ; "allocate" an empty object
+          seeded (assoc allocated :__class-symbol__ (:__own-symbol__ klass))
+          constructor (:__add-instance-values__ (:__instance-methods__ klass))]
+      (apply constructor seeded args))))
 
 (def send-to
   (fn [instance message & args]
-    (apply (message (:__methods__ instance)) instance args)))
+    (let [klass (eval (:__class-symbol__ instance))
+          method (message (:__instance-methods__ klass))]
+      (apply method instance args))))
 
 (def Point
-  (fn [x y]
-    {:x x ; initialize instance variables
-     :y y
-     :__class-symbol__ 'Point ; class meta-data
-     :__methods__ {:class :__class-symbol__
-                   :x :x ; getters
-                   :y :y
-                   :add
-                   (fn [this addend]
-                     (send-to this :shift (send-to addend :x) (send-to addend :y)))
-                   :shift
-                   (fn [this delta-x delta-y]
-                     (make Point (+ (send-to this :x) delta-x)
-                                 (+ (send-to this :y) delta-y)))}}))
+  {:__own-symbol__ 'aam/Point ; meta-data naming the class
+   :__instance-methods__ ; map of instance methods
+   {:class :__class-symbol__
+    :__add-instance-values__ ; constructor similar to Ruby `initialize`
+    (fn [this x y]
+      (assoc this :x x :y y))
+    :x :x
+    :y :y
+    :shift
+    (fn [this delta-x delta-y]
+      (make Point (+ (:x this) delta-x) (+ (:y this) delta-y)))}})
 
 (def x :x)
 
@@ -33,19 +35,20 @@
 
 (def shift
   (fn [this x-inc y-inc]
-    (Point (+ (x this) x-inc)
-           (+ (y this) y-inc))))
+    (make Point (+ (x this) x-inc) (+ (y this) y-inc))))
 
 (def add
   (fn [this addend]
     (shift this (x addend) (y addend))))
 
 (def Triangle
-  (fn [v1 v2 v3]
-    {:v1 v1
-     :v2 v2
-     :v3 v3
-     :__class-symbol__ 'Triangle}))
+  {:__own-symbol__ 'aam/Triangle
+   :__instance-methods__
+   {:class :__class-symbol__
+    :__add-instance-values__
+    (fn [this v1 v2 v3]
+      (assoc this :v1 v1 :v2 v2 :v3 v3))}
+   })
 
 (def equal-triangles? =)
 
