@@ -73,3 +73,7 @@
          (fact (aam/send-to point :shift -2 -3) => (contains {:x 779 :y 415}))
          (fact (aam/send-to point :x) => 781)
          (fact (aam/send-to point :y) => 418)))
+
+(facts "apply-message-to"
+  (let [a-point (aam/make aam/Point 359 208)]
+    (fact (aam/apply-message-to aam/Point a-point :shift [1 3]) => (contains {:x 360 :y 211}))))

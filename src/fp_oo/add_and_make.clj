@@ -13,6 +13,11 @@
           method (message (:__instance-methods__ klass))]
       (apply method instance args))))
 
+(def apply-message-to
+  (fn [klass instance message args]
+    (let [method (message (:__instance-methods__ klass))]
+      (apply method instance args))))
+
 (def Point
   {:__own-symbol__ 'aam/Point ; meta-data naming the class
    :__instance-methods__ ; map of instance methods
