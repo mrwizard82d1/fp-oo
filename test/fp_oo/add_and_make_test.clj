@@ -3,16 +3,16 @@
             [fp-oo.add-and-make :as aam]))
 
 (facts "Minimal constructor"
-       (fact (aam/Point 525 715) => (contains {:x 525,
-                                               :y 715,
-                                               :__class-symbol__ 'Point}))
+       (fact (aam/Point 525 715) => {:x 525,
+                                     :y 715,
+                                     :__class-symbol__ 'Point})
        (let [v1 (aam/Point 443 727)
              v2 (aam/Point 29 105)
              v3 (aam/Point 218 710)]
-         (fact (aam/Triangle v1 v2 v3) => (contains {:v1 v1
-                                                     :v2 v2
-                                                     :v3 v3
-                                                     :__class-symbol__ 'Triangle}))))
+         (fact (aam/Triangle v1 v2 v3) => {:v1 v1
+                                           :v2 v2
+                                           :v3 v3
+                                           :__class-symbol__ 'Triangle})))
 
 (facts "Accessors"
        (fact (aam/x {:x 763 :y 465}) => 763)
@@ -48,12 +48,12 @@
 
 (facts "equal-triangles?"
        (fact (aam/equal-triangles? aam/right-triangle aam/right-triangle) => truthy)
-       ;(fact (aam/equal-triangles? aam/right-triangle aam/equal-right-triangle) => truthy)
+       (fact (aam/equal-triangles? aam/right-triangle aam/equal-right-triangle) => truthy)
        (fact (aam/equal-triangles? aam/right-triangle aam/different-right-triangle) => falsey)
-       ;(fact (aam/equal-triangles?
-       ;        aam/right-triangle
-       ;        aam/equal-right-triangle
-       ;        (aam/make aam/Triangle (aam/Point 0 0) (aam/Point 1 0) (aam/Point 1 1))) => truthy)
+       (fact (aam/equal-triangles?
+               aam/right-triangle
+               aam/equal-right-triangle
+               (aam/make aam/Triangle (aam/Point 0 0) (aam/Point 1 0) (aam/Point 1 1))) => truthy)
        (fact (aam/equal-triangles?
                aam/right-triangle
                aam/equal-right-triangle

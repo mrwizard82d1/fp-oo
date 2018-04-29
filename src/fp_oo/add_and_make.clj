@@ -1,20 +1,11 @@
 (ns fp-oo.add-and-make
   (:require [fp-oo.just-enough-clojure :as jec]))
 
-(def make
-  (fn [ctor & args]
-    (apply ctor args)))
-
 (def Point
   (fn [x y]
-    {:x x ; initialize instance variables
+    {:x x
      :y y
-     :__class-symbol__ 'Point ; class meta-data
-     :__methods__ {:class :__class-symbol__
-                   :shift
-                   (fn [this delta-x delta-y]
-                     (make Point (+ (:x this) delta-x)
-                                 (+ (:y this) delta-y)))}}))
+     :__class-symbol__ 'Point}))
 
 (def x :x)
 
@@ -37,6 +28,10 @@
      :v2 v2
      :v3 v3
      :__class-symbol__ 'Triangle}))
+
+(def make
+  (fn [ctor & args]
+    (apply ctor args)))
 
 (def equal-triangles? =)
 
