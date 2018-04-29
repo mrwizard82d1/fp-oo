@@ -1,22 +1,21 @@
 (ns fp-oo.add-and-make
   (:require [fp-oo.just-enough-clojure :as jec]))
 
+(def apply-message-to
+  (fn [klass instance message args]
+    (let [method (message (:__instance-methods__ klass))]
+      (apply method instance args))))
+
 (def make
   (fn [klass & args]
-    (let [seeded {:__class-symbol__ (:__own-symbol__ klass)}
-          constructor (:__add-instance-values__ (:__instance-methods__ klass))]
-      (apply constructor seeded args))))
+    (let [seeded {:__class-symbol__ (:__own-symbol__ klass)}]
+      (apply-message-to klass seeded :__add-instance-values__ args))))
 
 (def send-to
   (fn [instance message & args]
     (let [klass (eval (:__class-symbol__ instance))
           method (message (:__instance-methods__ klass))]
-      (apply method instance args))))
-
-(def apply-message-to
-  (fn [klass instance message args]
-    (let [method (message (:__instance-methods__ klass))]
-      (apply method instance args))))
+      (apply-message-to klass instance message args))))
 
 (def Point
   {:__own-symbol__ 'aam/Point ; meta-data naming the class
