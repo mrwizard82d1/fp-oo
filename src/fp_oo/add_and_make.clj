@@ -34,9 +34,7 @@
 
 (def y :y)
 
-(def class-of 
-  (fn [this]
-    (send-to this :class)))
+(def class-of :__class-symbol__)
 
 (def shift
   (fn [this x-inc y-inc]

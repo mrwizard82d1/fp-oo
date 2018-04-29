@@ -20,8 +20,7 @@
 
 (facts "Class meta-data"
        (let [to-test (aam/make aam/Point 756 467)]
-         (fact (aam/class-of to-test) => 'aam/Point)
-         (fact (aam/send-to to-test :class) => 'aam/Point)))
+         (fact (aam/class-of to-test) => 'aam/Point)))
 
 (facts "shift"
        (let [to-test (aam/make aam/Point 990 949)
