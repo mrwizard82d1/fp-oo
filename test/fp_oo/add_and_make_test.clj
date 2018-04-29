@@ -49,22 +49,5 @@
 (facts "equal-triangles?"
        (fact (aam/equal-triangles? aam/right-triangle aam/right-triangle) => truthy)
        (fact (aam/equal-triangles? aam/right-triangle aam/equal-right-triangle) => truthy)
-       (fact (aam/equal-triangles? aam/right-triangle aam/different-right-triangle) => falsey)
-       (fact (aam/equal-triangles?
-               aam/right-triangle
-               aam/equal-right-triangle
-               (aam/make aam/Triangle (aam/Point 0 0) (aam/Point 1 0) (aam/Point 1 1))) => truthy)
-       (fact (aam/equal-triangles?
-               aam/right-triangle
-               aam/equal-right-triangle
-               aam/different-right-triangle) => falsey))
-
-(facts "valid-triangles?"
-       (let [v1 (aam/make aam/Point 15 156)
-             v2 (aam/make aam/Point 866 485)
-             v3 (aam/make aam/Point 390 667)
-             valid-triangle (aam/make aam/Triangle v1 v2 v3)
-             invalid-triangle (aam/make aam/Triangle v1 v2 v1)]
-         (fact (aam/valid-triangle? valid-triangle) => truthy)
-         (fact (aam/valid-triangle? invalid-triangle) => falsey)))
+       (fact (aam/equal-triangles? aam/right-triangle aam/different-right-triangle) => falsey))
 

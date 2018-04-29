@@ -33,7 +33,9 @@
   (fn [ctor & args]
     (apply ctor args)))
 
-(def equal-triangles? =)
+(def equal-triangles?
+  (fn [left right]
+    (= left right)))
 
 (def right-triangle
   (make Triangle (make Point 0 0) (make Point 1 0) (make Point 1 1)))
@@ -48,7 +50,3 @@
 (def v2 :v2)
 (def v3 :v3)
 
-(def valid-triangle?
-  (fn [triangle]
-    (let [vertices (map #(% triangle) [v1 v2 v3])]
-      (zero? (jec/duplicate-count vertices)))))
