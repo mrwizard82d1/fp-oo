@@ -48,12 +48,12 @@
 
 (facts "equal-triangles?"
        (fact (aam/equal-triangles? aam/right-triangle aam/right-triangle) => truthy)
-       ;(fact (aam/equal-triangles? aam/right-triangle aam/equal-right-triangle) => truthy)
        (fact (aam/equal-triangles? aam/right-triangle aam/different-right-triangle) => falsey)
-       ;(fact (aam/equal-triangles?
-       ;        aam/right-triangle
-       ;        aam/equal-right-triangle
-       ;        (aam/make aam/Triangle (aam/make aam/Point 0 0) (aam/make aam/Point 1 0) (aam/make aam/Point 1 1))) => truthy)
+       (fact (aam/equal-triangles?
+              aam/right-triangle
+              aam/equal-right-triangle
+              (aam/make aam/Triangle 
+                        (aam/make aam/Point 0 0) (aam/make aam/Point 1 0) (aam/make aam/Point 1 1))) => truthy)
        (fact (aam/equal-triangles?
                aam/right-triangle
                aam/equal-right-triangle
@@ -70,7 +70,6 @@
 
 (facts "send-to"
        (let [point (aam/make aam/Point 781 418)]
-         #_(fact (aam/send-to point :shift -2 -3) => (contains {:x 779 :y 415}))
-         #_(fact (aam/send-to point :x) => 781)
+         (fact (aam/send-to point :shift -2 -3) => (contains {:x 779 :y 415}))
+         (fact (aam/send-to point :x) => 781)
          (fact (aam/send-to point :y) => 418)))
-
