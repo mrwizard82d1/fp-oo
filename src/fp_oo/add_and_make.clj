@@ -50,3 +50,6 @@
 (def v2 :v2)
 (def v3 :v3)
 
+(def valid-triangle?
+  (fn [v1 v2 v3]
+    (zero? (jec/duplicate-count [v1 v2 v3]))))

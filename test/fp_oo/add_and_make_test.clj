@@ -55,3 +55,10 @@
                                    aam/equal-right-triangle
                                    aam/different-right-triangle) => falsey))
 
+(facts "valid-triangle?"
+  (let [v1 (aam/Point 793 615)
+        v2 (aam/Point 69 145)
+        v3 (aam/Point 277 899)]
+    (fact (aam/valid-triangle? v1 v2 v3) => truthy)
+    (fact (aam/valid-triangle? v1 v2 v1) => falsey)))
+
