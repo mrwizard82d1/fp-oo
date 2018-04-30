@@ -34,8 +34,8 @@
     (apply ctor args)))
 
 (def equal-triangles?
-  (fn [left right]
-    (= left right)))
+  (fn [& args]
+    (apply = args)))
 
 (def right-triangle
   (make Triangle (make Point 0 0) (make Point 1 0) (make Point 1 1)))

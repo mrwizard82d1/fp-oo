@@ -49,5 +49,9 @@
 (facts "equal-triangles?"
        (fact (aam/equal-triangles? aam/right-triangle aam/right-triangle) => truthy)
        (fact (aam/equal-triangles? aam/right-triangle aam/equal-right-triangle) => truthy)
-       (fact (aam/equal-triangles? aam/right-triangle aam/different-right-triangle) => falsey))
+       (fact (aam/equal-triangles? aam/right-triangle aam/different-right-triangle) => falsey)
+       (fact (aam/equal-triangles? aam/right-triangle aam/equal-right-triangle aam/right-triangle) => truthy)
+       (fact (aam/equal-triangles? aam/right-triangle 
+                                   aam/equal-right-triangle
+                                   aam/different-right-triangle) => falsey))
 
