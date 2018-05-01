@@ -5,6 +5,10 @@
   (fn [ctor & args]
     (apply ctor args)))
 
+(def send-to
+  (fn [this message & args]
+    (apply (message (:methods this)) this args)))
+
 (def Point
   (fn [x y]
     {:x x

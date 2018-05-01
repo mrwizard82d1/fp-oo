@@ -13,3 +13,8 @@
     (fact ((:shift (:methods to-test)) to-test -2 -3) => (contains {:x 191 :y 495 :__class-symbol__ 'Point}))
     (fact ((:class (:methods to-test)) to-test) => 'Point)))
 
+(facts "send-to"
+  (let [to-test (foef/make foef/Point 291 262)]
+    (fact (foef/send-to to-test :shift -2 -3) => (contains {:x 289 :y 259 :__class-symbol__ 'Point}))
+    (fact (foef/send-to to-test :class) => 'Point)))
+
