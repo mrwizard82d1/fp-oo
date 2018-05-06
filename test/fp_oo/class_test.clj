@@ -10,7 +10,9 @@
 (facts "send-to"
   (let [to-test (foc/make foc/Point 168 273)]
     (fact (foc/send-to to-test :shift -2 -3) => 
-          (contains {:x 166 :y 270 :__class-symbol__ `foc/Point}))))
+          (contains {:x 166 :y 270 :__class-symbol__ `foc/Point}))
+    (fact (foc/send-to to-test :class-name) => `foc/Point)
+    (fact (foc/send-to to-test :class) => (contains {:__own-symbol__ `foc/Point}))))
 
 (facts "apply-message-to"
   (let [to-test (foc/make foc/Point 0 604)]

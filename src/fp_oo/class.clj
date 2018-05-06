@@ -7,7 +7,8 @@
 
 (def make
   (fn [klass & args]
-    (let [seeded {:__class-symbol__ (:__own-symbol__ klass)}]
+    (let [seeded {:__class-symbol__ (:__own-symbol__ klass)
+                  :__class-map__ klass}]
       (apply-message-to klass seeded :add-instance-values args))))
 
 (def send-to
@@ -18,7 +19,8 @@
 (def Point
   {:__own-symbol__ `Point
    :__instance-methods__
-   {:class :__class-symbol__
+   {:class-name :__class-symbol__
+    :class :__class-map__
     :add-instance-values
     (fn [this x y]
       (assoc this :x x :y y))
