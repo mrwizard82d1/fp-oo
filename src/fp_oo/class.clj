@@ -24,6 +24,9 @@
     :add-instance-values
     (fn [this x y]
       (assoc this :x x :y y))
+    :origin
+    (fn [this]
+      (make Point 0 0))
     :shift
     (fn [this delta-x delta-y]
       (make Point 
