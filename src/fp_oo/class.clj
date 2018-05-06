@@ -7,15 +7,13 @@
 
 (def make
   (fn [klass & args]
-    (let [seeded {:__class-symbol__ (:__own-symbol__ klass)}
-          constructor (:add-instance-values (:__instance-methods__ klass))]
-      (apply constructor seeded args))))
+    (let [seeded {:__class-symbol__ (:__own-symbol__ klass)}]
+      (apply-message-to klass seeded :add-instance-values args))))
 
 (def send-to
   (fn [instance message & args]
-    (let [klass (eval (:__class-symbol__ instance))
-          method (message (:__instance-methods__ klass))]
-      (apply method instance args))))
+    (let [klass (eval (:__class-symbol__ instance))]
+      (apply-message-to klass instance message args))))
 
 (def Point
   {:__own-symbol__ `Point
