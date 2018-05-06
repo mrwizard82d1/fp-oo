@@ -30,3 +30,6 @@
 (facts "Holder without :held message"
   (let [to-test (foc/make foc/Holder "stuff")]
     (fact (foc/send-to to-test :held) => "stuff")))
+
+(fact "send-to no such message"
+  (fact (foc/send-to (foc/make foc/Point 567 161) :no-such-message) => nil))
