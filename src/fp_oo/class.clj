@@ -1,5 +1,10 @@
 (ns fp-oo.class)
 
+(def apply-message-to
+  (fn [klass instance message args]
+    (let [method (message (:__instance-methods__ klass))]
+      (apply method instance args))))
+
 (def make
   (fn [klass & args]
     (let [seeded {:__class-symbol__ (:__own-symbol__ klass)}
