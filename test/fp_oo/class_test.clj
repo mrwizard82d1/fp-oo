@@ -26,3 +26,7 @@
     ;; After
     (fact (foc/send-to to-test :origin) => 
           (contains {:x 0 :y 0 :__class-symbol__ `foc/Point}))))
+
+(facts "Holder without :held message"
+  (let [to-test (foc/make foc/Holder "stuff")]
+    (fact (foc/send-to to-test :held) => "stuff")))
