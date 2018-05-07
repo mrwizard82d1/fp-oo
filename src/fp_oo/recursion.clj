@@ -25,3 +25,17 @@
 (def my-sum
   (fn [s]
     (my-sum-1 s 0)))
+
+(def silly-combiner
+  (fn [so-far e]
+    (assoc so-far e 0)))
+
+(def silly-1
+  (fn [s so-far]
+    (if (empty? s)
+      so-far
+      (silly-1 (rest s) (silly-combiner so-far (first s))))))
+
+(def silly
+  (fn [s]
+    (silly-1 s {})))

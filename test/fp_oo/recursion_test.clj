@@ -24,3 +24,7 @@
   (fact (recursion/my-sum [0 3 1]) => 4)
   (fact (recursion/my-sum [0 3 1 2]) => 6)
   (fact (recursion/my-sum [0 3 1 2 4]) => 10))
+
+(facts "silly"
+  (fact (recursion/silly []) => {})
+  (fact (recursion/silly [:a :b :c]) => {:a 0 :b 0 :c 0}))
