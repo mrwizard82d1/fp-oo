@@ -15,3 +15,13 @@
 (def factorial-second
   (fn [n]
     (factorial-1 n 1)))
+
+(def my-sum-1
+  (fn [s so-far]
+    (if (empty? s)
+      so-far
+      (my-sum-1 (rest s) (+ so-far (first s))))))
+
+(def my-sum
+  (fn [s]
+    (my-sum-1 s 0)))

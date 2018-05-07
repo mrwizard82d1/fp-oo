@@ -17,3 +17,10 @@
   (fact (recursion/factorial-second 3) => 6)
   (fact (recursion/factorial-second 4) => 24)
   (fact (recursion/factorial-second 5) => 120))
+
+(facts "my-sum - second pattern"
+  (fact (recursion/my-sum [0]) => 0)
+  (fact (recursion/my-sum [0 3]) => 3)
+  (fact (recursion/my-sum [0 3 1]) => 4)
+  (fact (recursion/my-sum [0 3 1 2]) => 6)
+  (fact (recursion/my-sum [0 3 1 2 4]) => 10))
