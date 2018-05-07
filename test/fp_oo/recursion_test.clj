@@ -34,3 +34,15 @@
   (fact (recursion/sillier [:a]) => {:a 0})
   (fact (recursion/sillier [:a :b]) => {:a 0 :b 1})
   (fact (recursion/sillier [:a :b :c]) => {:a 0 :b 1 :c 2}))
+
+(facts "reduce"
+  (fact (reduce + 0 [1 2 3 4]) => 10)
+  (fact (reduce * 1 [1 2 3 4]) => 24)
+  (fact (reduce (fn [so-far val]
+                  (assoc so-far val 0))
+                {}
+                [:a :b :c]) => {:a 0 :b 0 :c 0})
+  (fact (reduce (fn [so-far val]
+                  (assoc so-far val (count so-far)))
+                {}
+                [:a :b :c]) => {:a 0 :b 1 :c 2}))
