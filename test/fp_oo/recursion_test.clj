@@ -28,3 +28,9 @@
 (facts "silly"
   (fact (recursion/silly []) => {})
   (fact (recursion/silly [:a :b :c]) => {:a 0 :b 0 :c 0}))
+
+(facts "sillier"
+  (fact (recursion/sillier []) => {})
+  (fact (recursion/sillier [:a]) => {:a 0})
+  (fact (recursion/sillier [:a :b]) => {:a 0 :b 1})
+  (fact (recursion/sillier [:a :b :c]) => {:a 0 :b 1 :c 2}))

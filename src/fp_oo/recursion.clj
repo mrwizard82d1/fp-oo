@@ -39,3 +39,17 @@
 (def silly
   (fn [s]
     (silly-1 s {})))
+
+(def sillier-combiner
+  (fn [so-far e]
+    (assoc so-far e (count so-far))))
+
+(def sillier-1
+  (fn [s so-far]
+    (if (empty? s)
+      so-far
+      (sillier-1 (rest s) (sillier-combiner so-far (first s))))))
+
+(def sillier
+  (fn [s]
+    (sillier-1 s {})))
