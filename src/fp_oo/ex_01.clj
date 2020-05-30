@@ -22,3 +22,7 @@
 ;; Exercise 5.2: Count duplicates in a sequence
 (defn count-duplicates [xs]
   (- (count xs) (count (distinct xs))))
+
+;; Exercises 5.3: Combines all first elements of a sequences of lists
+(defn all-firsts [& seqs]
+  (concat (map first seqs)))

@@ -50,3 +50,13 @@
       (fp-oo.ex-01/count-duplicates [1 4]) => 0
       (fp-oo.ex-01/count-duplicates [1 4 1]) => 1
       (fp-oo.ex-01/count-duplicates [1 4 1 4 2 1]) => 3)
+
+(fact "all-firsts"
+      (fp-oo.ex-01/all-firsts) => []
+      ;; I do not understand the reason for the following test. The expression,
+      ;; `(concat (map first []))` run in the repl returns an empty seq. I think
+      ;; it occurs because of map invokes `seq` on an empty seq, but I do not know..
+      (fp-oo.ex-01/all-firsts []) => [nil]
+      (fp-oo.ex-01/all-firsts [3 1 4]) => [3]
+      (fp-oo.ex-01/all-firsts [3 1 4] [2 7 1]) => [3 2]
+      (fp-oo.ex-01/all-firsts [3 1 4] [2 7 1] [1 4 1]) => [3 2 1])
