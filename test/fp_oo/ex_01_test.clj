@@ -35,3 +35,18 @@
       (fp-oo.ex-01/factorial 3) => 6
       (fp-oo.ex-01/factorial 4) => 24
       (fp-oo.ex-01/factorial 5) => 120)
+
+(fact "first 3 odd in sequence"
+      (fp-oo.ex-01/first-3-odd []) => []
+      (fp-oo.ex-01/first-3-odd [3]) => [3]
+      (fp-oo.ex-01/first-3-odd [3 1]) => [3 1]
+      (fp-oo.ex-01/first-3-odd [3 1 4]) => [3 1]
+      (fp-oo.ex-01/first-3-odd [3 1 4 1]) => [3 1 1]
+      (fp-oo.ex-01/first-3-odd [1 4 1 4 2 1]) => [1 1 1])
+
+(fact "count duplicates in sequence"
+      (fp-oo.ex-01/count-duplicates []) => 0
+      (fp-oo.ex-01/count-duplicates [1]) => 0
+      (fp-oo.ex-01/count-duplicates [1 4]) => 0
+      (fp-oo.ex-01/count-duplicates [1 4 1]) => 1
+      (fp-oo.ex-01/count-duplicates [1 4 1 4 2 1]) => 3)
