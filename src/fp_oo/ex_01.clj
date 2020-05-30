@@ -8,3 +8,9 @@
 
 (defn my-third-2 [xs]
   (my-second (rest xs)))
+
+(defn add-squares [& xs]
+  (apply + (map (fn [n] (* n n)) xs)))
+
+(defn factorial [n]
+  (apply * (range 1 (inc n))))
