@@ -61,3 +61,7 @@
   (if (not (empty? parse-tree))
     (make-space-separated (flatten parse-tree))
     ""))
+
+; Exercise 5.8: Split data into time-text pairs
+(defn time-text-pairs [ts]
+  (partition 2 ts))

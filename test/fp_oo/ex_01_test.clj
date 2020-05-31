@@ -86,3 +86,10 @@
       (fp-oo.ex-01/create-syntax-error ["dec" ["count" "ns"]]) => ["dec" " " "count" " " "ns"]
       (fp-oo.ex-01/create-syntax-error ["/" ["dec" ["count" "ns"]] "2"]) =>
                                        ["/" " " "dec" " " "count" " " "ns" " " "2"])
+
+(fact "time-text-pairs"
+      (fp-oo.ex-01/time-text-pairs []) => []
+      (fp-oo.ex-01/time-text-pairs ["0115"]) => []
+      (fp-oo.ex-01/time-text-pairs ["0115" "fp-oo"]) => [["0115" "fp-oo"]]
+      (fp-oo.ex-01/time-text-pairs ["0115" "fp-oo" "0225" "out" "0840" "plan"]) =>
+                                   [["0115" "fp-oo"] ["0225" "out"] ["0840" "plan"]])
