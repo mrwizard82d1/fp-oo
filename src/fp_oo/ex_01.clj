@@ -66,6 +66,10 @@
 (defn time-text-pairs [ts]
   (partition 2 ts))
 
-; Exercise 5.9: First 3 even numbers in sequence (without using even?)
+; Exercise 5.9: All subsequences where all elements in subsequence are even
+(defn all-evens [& seqs]
+  (filter (fn [s] (every? even? s)) seqs))
+
+; Exercise 5.10: First 3 even numbers in sequence (without using even?)
 (defn first-3-even [xs]
-  (take 3 (remove odd? xs)))
+  (take 3 (remove (fn [x] (odd? x)) xs)))
