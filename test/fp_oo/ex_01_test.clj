@@ -79,3 +79,10 @@
       (fp-oo.ex-01/median [3 1 4]) => 1
       (fp-oo.ex-01/median [3 1 4 1]) => (/ 5 2)
       (fp-oo.ex-01/median [3 1 4 1 5]) => 4)
+
+(fact "create-syntax-error"
+      (fp-oo.ex-01/create-syntax-error []) => ""
+      (fp-oo.ex-01/create-syntax-error ["count" "ns"]) => ["count" " " "ns"]
+      (fp-oo.ex-01/create-syntax-error ["dec" ["count" "ns"]]) => ["dec" " " "count" " " "ns"]
+      (fp-oo.ex-01/create-syntax-error ["/" ["dec" ["count" "ns"]] "2"]) =>
+                                       ["/" " " "dec" " " "count" " " "ns" " " "2"])

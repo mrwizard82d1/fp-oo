@@ -51,4 +51,13 @@
       (/ (apply + (take 2 (drop (dec (/ (count ns) 2)) ns))) 2))
     ns))
 
+; Exercise 5.7: Create error message from parse tree
+(defn make-space-separated [xs]
+  (concat (interleave xs
+                      (repeat (dec (count xs)) " "))
+          (list (last xs))))
 
+(defn create-syntax-error [parse-tree]
+  (if (not (empty? parse-tree))
+    (make-space-separated (flatten parse-tree))
+    ""))
