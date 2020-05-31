@@ -110,3 +110,10 @@
       (fp-oo.ex-01/first-3-even [3 1 4 1 5 9 2]) => [4 2]
       (fp-oo.ex-01/first-3-even [3 1 4 1 5 9 2 6]) => [4 2 6])
 
+(fact "prefix-of?"
+      (fp-oo.ex-01/prefix-of? [] [1 2 3 4]) => truthy
+      (fp-oo.ex-01/prefix-of? [1 2] [1 2 3 4]) => truthy
+      (fp-oo.ex-01/prefix-of? [1 3] [1 2 3 4]) => falsey
+      (fp-oo.ex-01/prefix-of? [1 2] '(1 2 3 4)) => truthy
+      (fp-oo.ex-01/prefix-of? '(1 2) [1 2 3 4]) => truthy
+      (fp-oo.ex-01/prefix-of? '(1 2) '(1 2 3 4)) => truthy)

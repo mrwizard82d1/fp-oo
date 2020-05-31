@@ -73,3 +73,7 @@
 ; Exercise 5.10: First 3 even numbers in sequence (without using even?)
 (defn first-3-even [xs]
   (take 3 (remove (fn [x] (odd? x)) xs)))
+
+; Exercise 6
+(defn prefix-of? [candidate sequence]
+  (= candidate (take (count candidate) sequence)))
