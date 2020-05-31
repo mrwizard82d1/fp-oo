@@ -93,3 +93,12 @@
       (fp-oo.ex-01/time-text-pairs ["0115" "fp-oo"]) => [["0115" "fp-oo"]]
       (fp-oo.ex-01/time-text-pairs ["0115" "fp-oo" "0225" "out" "0840" "plan"]) =>
                                    [["0115" "fp-oo"] ["0225" "out"] ["0840" "plan"]])
+
+(fact "first-3-even"
+      (fp-oo.ex-01/first-3-even []) => []
+      (fp-oo.ex-01/first-3-even [3]) => []
+      (fp-oo.ex-01/first-3-even [3 1]) => []
+      (fp-oo.ex-01/first-3-even [3 1 4]) => [4]
+      (fp-oo.ex-01/first-3-even [3 1 4 1 5 9 2]) => [4 2]
+      (fp-oo.ex-01/first-3-even [3 1 4 1 5 9 2 6]) => [4 2 6])
+

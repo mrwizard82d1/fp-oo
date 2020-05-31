@@ -65,3 +65,7 @@
 ; Exercise 5.8: Split data into time-text pairs
 (defn time-text-pairs [ts]
   (partition 2 ts))
+
+; Exercise 5.9: First 3 even numbers in sequence (without using even?)
+(defn first-3-even [xs]
+  (take 3 (remove odd? xs)))
