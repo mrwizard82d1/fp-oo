@@ -36,3 +36,19 @@
     ;; nth is by **index**, not ordinal
     (repeat 5 [(nth a (dec 3)) (nth b (dec 5))])
     []))
+
+;; Exercise 5.5: Put a comma in between each element of a list
+(defn make-comma-separated [xs]
+  (concat (interleave xs
+                      (repeat (dec (count xs)) ","))
+          (list (last xs))))
+
+;; Exercise 5.6: Calculate median element of sequence of numbers
+(defn median [ns]
+  (if (not (empty? ns))
+    (if (odd? (count ns))
+      (first (drop (/ (dec (count ns)) 2) ns))
+      (/ (apply + (take 2 (drop (dec (/ (count ns) 2)) ns))) 2))
+    ns))
+
+

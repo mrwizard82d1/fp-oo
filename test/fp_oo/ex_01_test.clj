@@ -66,3 +66,16 @@
       (fp-oo.ex-01/repeat-3-5 [3 1 4] [1 4 1 4]) => []
       (fp-oo.ex-01/repeat-3-5 [3 1] [1 4 1 4 2]) => []
       (fp-oo.ex-01/repeat-3-5 [3 1 4] [1 4 1 4 2 1]) => [[4 2] [4 2] [4 2] [4 2] [4 2]])
+
+(fact "make-comma-separated"
+      (fp-oo.ex-01/make-comma-separated []) => [nil]
+      (fp-oo.ex-01/make-comma-separated ["a"]) => ["a"]
+      (fp-oo.ex-01/make-comma-separated ["a" "b"]) => ["a" "," "b"])
+
+(fact "median"
+      (fp-oo.ex-01/median []) => []
+      (fp-oo.ex-01/median [3]) => 3
+      (fp-oo.ex-01/median [3 1]) => 2
+      (fp-oo.ex-01/median [3 1 4]) => 1
+      (fp-oo.ex-01/median [3 1 4 1]) => (/ 5 2)
+      (fp-oo.ex-01/median [3 1 4 1 5]) => 4)
