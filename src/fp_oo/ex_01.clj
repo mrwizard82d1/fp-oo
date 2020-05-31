@@ -26,3 +26,13 @@
 ;; Exercises 5.3: Combines all first elements of a sequences of lists
 (defn all-firsts [& seqs]
   (concat (map first seqs)))
+
+;; Exercises 5.4: Given two lists, A and B, create a third list
+;; consisting of 5 repetitions of the 3rd item of A and the 5th
+;; item of B.
+(defn repeat-3-5 [a b]
+  (if (and (>= (count a) 3)
+           (>= (count b) 5))
+    ;; nth is by **index**, not ordinal
+    (repeat 5 [(nth a (dec 3)) (nth b (dec 5))])
+    []))

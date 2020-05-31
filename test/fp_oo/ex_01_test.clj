@@ -60,3 +60,9 @@
       (fp-oo.ex-01/all-firsts [3 1 4]) => [3]
       (fp-oo.ex-01/all-firsts [3 1 4] [2 7 1]) => [3 2]
       (fp-oo.ex-01/all-firsts [3 1 4] [2 7 1] [1 4 1]) => [3 2 1])
+
+(fact "repeat-3-5"
+      (fp-oo.ex-01/repeat-3-5 [] []) => []
+      (fp-oo.ex-01/repeat-3-5 [3 1 4] [1 4 1 4]) => []
+      (fp-oo.ex-01/repeat-3-5 [3 1] [1 4 1 4 2]) => []
+      (fp-oo.ex-01/repeat-3-5 [3 1 4] [1 4 1 4 2 1]) => [[4 2] [4 2] [4 2] [4 2] [4 2]])
