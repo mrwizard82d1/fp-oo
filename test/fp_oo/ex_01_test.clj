@@ -117,3 +117,8 @@
       (fp-oo.ex-01/prefix-of? [1 2] '(1 2 3 4)) => truthy
       (fp-oo.ex-01/prefix-of? '(1 2) [1 2 3 4]) => truthy
       (fp-oo.ex-01/prefix-of? '(1 2) '(1 2 3 4)) => truthy)
+
+(fact "tails"
+      (fp-oo.ex-01/tails []) => []
+      (fp-oo.ex-01/tails '(1)) => [[1] []]
+      (fp-oo.ex-01/tails '(1 2 3 4)) => [[1 2 3 4] [2 3 4] [3 4] [4] []])

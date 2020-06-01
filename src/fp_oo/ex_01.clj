@@ -77,3 +77,9 @@
 ; Exercise 6
 (defn prefix-of? [candidate sequence]
   (= candidate (take (count candidate) sequence)))
+
+; Exercise 7
+(defn tails [s]
+  (if (not (empty? s))
+    (map (fn [n] (drop n s)) (range (inc (count s))))
+    s))
