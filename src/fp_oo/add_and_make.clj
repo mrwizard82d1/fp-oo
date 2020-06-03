@@ -15,7 +15,5 @@
   (:__class_symbol__ this))
 
 (defn shift [this x-increment y-increment]
-  (print (x this))
   (Point (+ (x this) x-increment)
          (+ (y this) y-increment)))
-
