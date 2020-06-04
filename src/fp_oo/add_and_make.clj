@@ -17,3 +17,20 @@
 (defn shift [this x-increment y-increment]
   (Point (+ (x this) x-increment)
          (+ (y this) y-increment)))
+
+(defn add [this addend]
+  (Point (+ (x this) (x addend))
+         (+ (y this) (y addend))))
+
+(defn alt-add [this addend]
+  (shift this (x addend) (y addend)))
+
+(defn make [class-fn & args]
+  (apply class-fn args))
+
+(defn Triangle [vertex-1 vertex-2 vertex-3]
+  {:vertices [vertex-1 vertex-2 vertex-3]
+   :__class_symbol__ 'Triangle})
+
+(defn vertices [this]
+  (:vertices this))
