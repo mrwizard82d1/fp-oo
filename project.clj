@@ -10,4 +10,3 @@
   :source-paths ["src"]
   :test-paths ["test"])
 
-  
