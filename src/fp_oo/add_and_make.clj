@@ -34,3 +34,22 @@
 
 (defn vertices [this]
   (:vertices this))
+
+(def right-triangle (make Triangle
+                          (make Point 0 0)
+                          (make Point 0 1)
+                          (make Point 1 0)))
+
+(def equal-right-triangle (make Triangle
+                                (make Point 0 0)
+                                (make Point 0 1)
+                                (make Point 1 0)))
+
+(def different-right-triangle (make Triangle
+                                    (make Point 0 0)
+                                    (make Point 0 2)
+                                    (make Point 2 0)))
+
+(defn equal-triangles? [left right]
+  (= (vertices left)
+     (vertices right)))

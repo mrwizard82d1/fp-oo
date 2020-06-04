@@ -39,3 +39,11 @@
         (get-in to-test [1 :y]) => 3
         (get-in to-test [2 :x]) => 3
         (get-in to-test [2 :y]) => 1))
+
+(fact "equal-triangles?"
+      (fp-oo.add-and-make/equal-triangles? fp-oo.add-and-make/right-triangle
+                                           fp-oo.add-and-make/right-triangle) => truthy
+      (fp-oo.add-and-make/equal-triangles? fp-oo.add-and-make/right-triangle
+                                           fp-oo.add-and-make/equal-right-triangle) => truthy
+      (fp-oo.add-and-make/equal-triangles? fp-oo.add-and-make/right-triangle
+                                           fp-oo.add-and-make/different-right-triangle) => falsey)
