@@ -47,3 +47,11 @@
                                            fp-oo.add-and-make/equal-right-triangle) => truthy
       (fp-oo.add-and-make/equal-triangles? fp-oo.add-and-make/right-triangle
                                            fp-oo.add-and-make/different-right-triangle) => falsey)
+
+(fact "valid-triangles?"
+      (fp-oo.add-and-make/valid-triangle? (fp-oo.add-and-make/make fp-oo.add-and-make/Point 16 -37)
+                                          (fp-oo.add-and-make/make fp-oo.add-and-make/Point 25 -2)
+                                          (fp-oo.add-and-make/make fp-oo.add-and-make/Point 2 -44)) => truthy
+      (fp-oo.add-and-make/valid-triangle? (fp-oo.add-and-make/make fp-oo.add-and-make/Point 16 -37)
+                                          (fp-oo.add-and-make/make fp-oo.add-and-make/Point 25 -2)
+                                          (fp-oo.add-and-make/make fp-oo.add-and-make/Point 16 -37)) => falsey)

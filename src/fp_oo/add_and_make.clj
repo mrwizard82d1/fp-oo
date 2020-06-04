@@ -53,3 +53,7 @@
 (defn equal-triangles? [left right]
   (= (vertices left)
      (vertices right)))
+
+(defn valid-triangle? [vertex-1 vertex-2 vertex-3]
+  (every? (fn [pair] (not= (first pair)  (second pair)))
+          [[vertex-1 vertex-2] [vertex-1 vertex-3] [vertex-2 vertex-3]]))
