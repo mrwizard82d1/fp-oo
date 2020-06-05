@@ -16,4 +16,9 @@
     (get-in to-test [:methods :class]) => :__class_symbol__
     (fn? (get-in to-test [:methods :shift])) => truthy))
 
-         
+(facts "send-to"
+       (let [to-test (ef/make ef/Point -29 2)
+             actual (ef/send-to to-test :shift 24 -30)]
+         (keys actual) => [:x :y :__class_symbol__ :methods]
+         (:x actual) => -5
+         (:y actual) => -28))

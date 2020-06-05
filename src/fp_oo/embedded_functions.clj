@@ -11,7 +11,9 @@
    :__class_symbol__ 'Point
    :methods {:class :__class_symbol__
              :shift (fn [this x-increment y-increment]
-                      (make 'Point
+                      (make Point
                             (+ (:x this) x-increment)
                             (+ (:y this) y-increment)))}})
 
+(defn send-to [instance message & args]
+  (apply (message (:methods instance)) instance args))
